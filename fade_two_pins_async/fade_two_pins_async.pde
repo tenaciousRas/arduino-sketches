@@ -20,7 +20,7 @@ int pin1FadeValue = 255;
 int pin1FadeMode = 0;
 int pin2FadeValue = 0;
 int pin2FadeMode = 1;
-int pinFadeOffset = 0;
+int pinFadeOffset = 0;  // fadeValue offset for pin 2
 
 void setup()  { 
   // nothing happens in setup 
@@ -32,6 +32,9 @@ void setup()  {
 void loop()  {
   int sensorValue = analogRead(A2);
   fadeIncrement = sensorValue / 8;
+  if (fadeIncrement < 1) {
+    fadeIncrement = 1;
+  }
   if (pin1FadeMode == 1) {
      pin1FadeValue += fadeIncrement;
   } else {

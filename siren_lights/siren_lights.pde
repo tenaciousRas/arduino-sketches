@@ -1,7 +1,8 @@
 /*
  Fading
  
- This example shows how to fade an LED using the analogWrite() function.
+ This example shows how to fade two LEDs simultaneously.  An analog
+ sensor, such as a potentiometer, controls the fadeIncrement.
  
  The circuit:
  * LED attached from digital pin 9 to ground.
@@ -20,7 +21,7 @@ int pin1FadeValue = 255;
 int pin1FadeMode = 0;
 int pin2FadeValue = 0;
 int pin2FadeMode = 1;
-int pinFadeOffset = 0;
+int pinFadeOffset = 0;  // fadeValue offset for pin 2
 
 void setup()  { 
   // nothing happens in setup 
@@ -32,9 +33,6 @@ void setup()  {
 void loop()  {
   int sensorValue = analogRead(A2);
   fadeIncrement = sensorValue / 8;
-  if (fadeIncrement < 1) {
-    fadeIncrement = 1;
-  }
   if (pin1FadeMode == 1) {
      pin1FadeValue += fadeIncrement;
   } else {
@@ -81,7 +79,4 @@ int setPinFadeMode(int fadeValue, int currentPinMode) {
     }
   }
   return currentPinMode;
-//  if (bouncePinMode(pin1FadeValue)) {
-//    pin1FadeMode = ((pin1FadeMode + 1) % 2) - 1;
-//  }
 }
