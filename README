@@ -2,10 +2,19 @@ Some various Arduino sketches.
 
 --------------------
 Fade Two Pins Async:
-This sketch is similar to PWM example at Arduino.cc (http://www.arduino.cc/en/Tutorial/PWM), except that it operates two LEDs simultaneously.  The circuit to test this is basically two LEDs connected to different Arduino digital IO pins - don't forget the resistor - with both LEDs grounded to the Arduino.
 Fritzing sketch: fade_two_pins_schematic.fz 
+
+This sketch is similar to PWM example at Arduino.cc (http://www.arduino.cc/en/Tutorial/PWM).  It provides two PWMs that operate independently.
+In the demo, it operates two LEDs simultaneously.  See the Fritzing sketch for the demo schematic.
 
 -------------
 Siren Lights:
-Could also be called "Fade Two Pins Async with Potentiometer".  This sketch is just like above, except 'fadeIncrement' is set by analog IO pin A2.
-Fritzing sketch: fade_two_pins_schematic.fz 
+Fritzing sketch: fade_two_pins_schematic.fz  -- also add a POT to A2
+
+Could also be called "Fade Two Pins Async with Potentiometer".  This sketch is just like above, except 'fadeIncrement' is set by analog I/O pin A2.
+
+----------------
+One Pin Dual Led
+Fritzing sketch: one_pin_dual_led.fz
+
+Drives a dual-color LED with one digital I/O pin.  This sketch relies on a circuit with a voltage divider between the LED - connected to the I/O pin - and ground.
